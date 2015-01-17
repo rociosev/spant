@@ -12,8 +12,8 @@ var interval;
 
 var main = new UI.Card({
   title: 'SPANT',
-  icon: 'images/menu_icon.png',
-  subtitle: 'Enter desired time interval'
+  icon: 'bigben.png',
+  subtitle: 'Select desired Spant'
 });
 
 main.show();
@@ -23,15 +23,15 @@ main.on('click', 'select', function(e) {
   var menu = new UI.Menu({
     sections: [{
       items: [{
-        title: '5 sec interval',
-        subtitle: 'Spant 5 seconds'
+        title: 'Spant 5 seconds',
+        subtitle: '5 sec interval'
       }, {
-        title: '10 sec interval',
-        subtitle: 'Spant 10 seconds'
+        title: 'Spant 10 seconds',
+        subtitle: '10 sec interval'
       },
       {
-        title: '15 sec interval',
-        subtitle: 'Spant 15 seconds'
+        title: 'Spant 15 seconds',
+        subtitle: '15 sec interval'
       }]
     }]
   });

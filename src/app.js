@@ -11,7 +11,7 @@ var Vibe = require('ui/vibe');
 var main = new UI.Card({
   title: 'SPANT',
   icon: 'images/menu_icon.png',
-  subtitle: 'Enter desired time interval'
+  subtitle: 'Push up and down buttons to specify seconds'
 });
 
 main.show();

@@ -24,14 +24,14 @@ main.on('click', 'select', function(e) {
     sections: [{
       items: [{
         title: '5 sec interval',
-        subtitle: 'Vibrate every 5 seconds'
+        subtitle: 'Spant 5 seconds'
       }, {
         title: '10 sec interval',
-        subtitle: 'Vibrate every 10 seconds'
+        subtitle: 'Spant 10 seconds'
       },
       {
         title: '15 sec interval',
-        subtitle: 'Vibrate every 15 seconds'
+        subtitle: 'Spant 15 seconds'
       }]
     }]
   });

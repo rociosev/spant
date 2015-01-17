@@ -7,41 +7,63 @@
 var UI = require('ui');
 var Vector2 = require('vector2');
 var Vibe = require('ui/vibe');
+var intervalTime;
+var interval;
 
 var main = new UI.Card({
   title: 'SPANT',
   icon: 'images/menu_icon.png',
-  subtitle: 'Push up and down buttons to specify seconds'
+  subtitle: 'Enter desired time interval'
 });
 
 main.show();
 
-setInterval( function() {
-  Vibe.vibrate('long')}
-            ,5000);
 
-main.on('click', 'up', function(e) {
+main.on('click', 'select', function(e) {
   var menu = new UI.Menu({
     sections: [{
       items: [{
-        title: 'Pebble.js',
-        icon: 'images/menu_icon.png',
-        subtitle: 'It should have vibrated...'
+        title: '5 sec interval',
+        subtitle: 'Vibrate every 5 seconds'
       }, {
-        title: 'Second Item',
-        subtitle: 'Subtitle Text'
+        title: '10 sec interval',
+        subtitle: 'Vibrate every 10 seconds'
+      },
+      {
+        title: '15 sec interval',
+        subtitle: 'Vibrate every 15 seconds'
       }]
     }]
   });
   menu.on('select', function(e) {
-    console.log('Selected item #' + e.itemIndex + ' of section #' + e.sectionIndex);
-    console.log('The item is titled "' + e.item.title + '"');
+    intervalTime = (e.itemIndex + 1) * 5000;
+    window.clearInterval(interval);
+    interval = setInterval(function() {Vibe.vibrate('long')}, intervalTime);
+    function confirm() {
+    var wind = new UI.Window();
+    var textfield = new UI.Text({
+    position: new Vector2(0, 50),
+    size: new Vector2(144, 30),
+    font: 'gothic-24-bold',
+    text: 'Interval set to ' + (intervalTime / 1000) + '!',
+    textAlign: 'center'
+    });
+    wind.add(textfield);
+    wind.on('click', 'back', function(e) {
+    window.clearInterval(interval);
+    menu.show();
+  });
+  wind.show();
+}
+    confirm();
   });
   menu.show();
-  Vibe.vibrate('long');
 });
 
-main.on('click', 'select', function(e) {
+
+
+
+main.on('click', 'up', function(e) {
   var wind = new UI.Window();
   var textfield = new UI.Text({
     position: new Vector2(0, 50),

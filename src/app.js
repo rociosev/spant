@@ -82,4 +82,4 @@ main.on('click', 'down', function(e) {
   card.subtitle('Is a Window');
   card.body('The simplest window type in Pebble.js.');
   card.show();
-});
+})
